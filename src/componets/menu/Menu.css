@@ -1,5 +1,23 @@
 .menu {
-    background-color: beige;
+    background-color: rgb(92, 58, 33);
     text-align: center;
-    color: white;
+    padding: 10px;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    gap: 15px;
+}
+
+.menu a {
+    color: whitesmoke;
+    padding: 6px 10px;
+}
+
+.menu a:hover {
+    background-color: rgb(107, 71, 45);
+    border-radius: 4px;
 }

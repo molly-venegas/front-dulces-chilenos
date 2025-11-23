@@ -9,8 +9,8 @@ import { Footer } from "../../componets/footer/Footer"
 export function Home(){
     return(
         <div className="home">
-            <Header />
             <Menu />
+            <Header />
             <Product_catalog />
             <Shopping_cart />
             <Contact />
