@@ -7,27 +7,32 @@ export function Product_catalog() {
             <div className="product_grid"> 
                 <div className="product">
                     <img src="../../../alfajores.jpeg"/>
-                    <h3>Alfajores</h3>
+                    <h2>alfajores</h2>
+                    <h3>caja de 6 unidades</h3>
                     <p>$3.000</p>
                 </div>
                     <div className="product">
                     <img src="../../../cachitos.jpeg"/>
-                    <h3>cachitos</h3>
+                    <h2>cachitos</h2>
+                    <h3>caja de 8 unidades</h3>
                     <p>$3.000</p>
                 </div>                
                     <div className="product">
                     <img src="../../../chilenitos.jpeg"/>
-                    <h3>Alfajores</h3>
+                    <h2>chilenitos</h2>
+                    <h3>caja de 4 unidades</h3>
                     <p>$3.000</p>
                 </div>                
                     <div className="product">
-                    <img src="../../../alfajores.jpeg"/>
-                    <h3>Alfajores</h3>
+                    <img src="../../../mendocinos-cocktail.jpeg"/>
+                    <h2>mendocino cocktail</h2>
+                    <h3>caja de 8 unidades</h3>
                     <p>$3.000</p>
                 </div>                
                     <div className="product">
-                    <img src="../../../alfajores.jpeg"/>
-                    <h3>Alfajores</h3>
+                    <img src="../../../mendocinos-grandes.jpeg"/>
+                    <h2>mendocinos grandes</h2>
+                    <h3>caja de 4 unidades</h3>
                     <p>$3.000</p>
                 </div>
             </div>
