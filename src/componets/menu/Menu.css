@@ -21,3 +21,7 @@
     background-color: rgb(107, 71, 45);
     border-radius: 4px;
 }
+
+.cart_button {
+    float: right;
+}

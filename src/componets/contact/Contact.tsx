@@ -9,9 +9,6 @@ export function Contact() {
     })
     
 function handleChange(e){
-    console.log ("evento de cambio");
-    console.log ("target name", e.target.name);
-    console.log ("target value", e.target.value);
     const {name, value} = e.target;
     setForm((prev) => ({ ...prev, [name]: value}))
 }
@@ -27,9 +24,9 @@ function handleChange(e){
         <div className="contact">
             <h1>contacto</h1>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="name" onChange={handleChange} placeholder="ingresa tu nombre..."/>
-                <input type="text" name="email" onChange={handleChange} placeholder="ingresa tu correo..."/>
-                <textarea name="message" id="" onChange={handleChange} placeholder="ingresa tu mensaje..."></textarea>
+                <input type="text" name="name" onChange={handleChange} placeholder="ingrese su nombre..."/>
+                <input type="text" name="email" onChange={handleChange} placeholder="ingrese su correo..."/>
+                <textarea name="message" id="" onChange={handleChange} placeholder="ingrese su mensaje..."></textarea>
                 <button type="submit">enviar</button>
             </form>
         </div>
