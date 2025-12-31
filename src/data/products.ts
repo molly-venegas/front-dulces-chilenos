@@ -4,7 +4,16 @@ import chilenitos from "../assets/chilenitos.jpeg";
 import mendocinosCocktail from "../assets/mendocinos-cocktail.jpeg";
 import mendocinosGrandes from "../assets/mendocinos-grandes.jpeg";
 
-export const products =[
+export type Product ={
+    id: string;
+    name: string;
+    description: string;
+    price: number;
+    image: string;
+    alt: string;
+}
+
+export const products:Product[] =[
     {
         id:"alfajores",
         name:"Alfajores",
