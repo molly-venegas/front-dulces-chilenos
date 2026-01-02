@@ -28,3 +28,17 @@
 .product p {
     font-weight: bold;
 }
+
+.product_actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product_actions button {
+    border: 1px solid black;
+}
+
+.product_actions p {
+    margin: 5px;
+}
