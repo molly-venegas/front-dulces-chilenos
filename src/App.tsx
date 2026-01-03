@@ -19,7 +19,7 @@ function App() {
   return(
   <CartProvider>
   <div>
-  <Menu />
+  <Menu onCartClick={openCart} />
   <Header />
   <Routes>
     <Route path='/' element={<Home />} />
@@ -28,7 +28,7 @@ function App() {
     <Route path='*' element={<Navigate to="/" replace />} />
   </Routes>
   <Footer />
-  <Shopping_cart />
+  <Shopping_cart isOpen={isCartOpen} onClose={closeCart}/> 
 </div>
 </CartProvider>
 );

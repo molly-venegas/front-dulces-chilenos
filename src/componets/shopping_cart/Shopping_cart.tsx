@@ -7,8 +7,8 @@ type ShoppingCartProps ={
 
 export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
     return (
-        <div className="shopping_cart">
-            <h1>carrito</h1>
+        <div className="shopping_cart" onClick={onClose}>
+            {isOpen && <h1>carrito</h1>}
         </div>
     )
 }
