@@ -7,8 +7,15 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Catalog } from './pages/Catalog/Catalog';
 import { Contact } from './pages/Contact/Contact';
 import { CartProvider } from './context/cart_context';
+import {useState } from 'react';
+import { Shopping_cart } from './componets/shopping_cart/Shopping_cart';
 
 function App() {
+
+  const [isCartOpen, setIsCartOpen] =useState(false);
+  const openCart = ()=>{setIsCartOpen(true)};
+  const closeCart = ()=>{setIsCartOpen(false)};
+
   return(
   <CartProvider>
   <div>
@@ -21,6 +28,7 @@ function App() {
     <Route path='*' element={<Navigate to="/" replace />} />
   </Routes>
   <Footer />
+  <Shopping_cart />
 </div>
 </CartProvider>
 );
