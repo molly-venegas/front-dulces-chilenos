@@ -13,8 +13,8 @@ import { Shopping_cart } from './componets/shopping_cart/Shopping_cart';
 function App() {
 
   const [isCartOpen, setIsCartOpen] =useState(false);
-  const openCart = ()=>{setIsCartOpen(true)};
-  const closeCart = ()=>{setIsCartOpen(false)};
+  const openCart = ()=>setIsCartOpen(true);
+  const closeCart = ()=>setIsCartOpen(false);
 
   return(
   <CartProvider>
