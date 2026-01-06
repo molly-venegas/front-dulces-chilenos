@@ -31,7 +31,7 @@ export function CartProvider({ children }:{ children: ReactNode}){
                         product: item.product,
                         quantity: item.quantity + 1,
                     });
-                    found: true;
+                    found = true;
                 } else {
                     newItems.push(item)
                 }

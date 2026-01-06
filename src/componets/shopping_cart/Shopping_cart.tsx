@@ -21,11 +21,11 @@ export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
 
     return (
         <div>
-        {isOpen && <div className="shopping_cart" onClick={onClose}/>}
-            <div> 
+        {isOpen && <div onClick={onClose}/>}
+            <div className={`Shopping_cart ${isOpen ? "shopping_cart--open" :""}`}> 
                 <div className="shopping_cart_header"> 
                     <h2>carrito</h2>
-                    <button>X</button>
+                    <button onClick={onClose} type="button">X</button>
                 </div>
                 {!hasItem ? (
                     <p>no tienes productos en el carrito.</p>
@@ -33,9 +33,23 @@ export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
                     <div className="shopping_cart_body">
                         <div className="shopping_cart_content">
                         <ul className="cart_list">
-                            {items.map(({product, quantity})=>{})}
-                            <li></li>
+                            {items.map(({product, quantity})=>(
+                             <li className="cart_item">
+                                <div className="cart_item_details"> 
+                                    <img src={product.image} alt={product.alt}></img>
+                                    <h3> {product.name} </h3>
+                                </div>
+                                <div className="cart_item_number">
+                                    <p>subtotal</p>
+                                    <p> {product.price * quantity} </p>
+                                </div>
+                             </li>
+                            ))}
                         </ul>
+                        <div> 
+                            <p>total</p>
+                            <p> {total} </p>
+                        </div>
                         </div>
                         <div className="shopping_cart_action">
                             <button>crear pedido</button>
