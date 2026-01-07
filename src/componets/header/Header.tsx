@@ -6,7 +6,7 @@ export function Header() {
         <div className="header">
             <img src={logo} alt="Logo" className="logo"/>
             <br />
-            <p>Delicias artesanales con un toque casero y auténtico sabor.</p>
+            <p>Delicias artesanales con un toque casero y auténtico sabor ❤️.</p>
         </div>
     )
 }

@@ -1,5 +1,6 @@
-import "./Shopping_cart.css"
-import { useCart } from "../../context/cart_context"
+import "./Shopping_cart.css";
+import { useCart } from "../../context/cart_context";
+import { useState } from "react";
 
 type ShoppingCartProps ={
     isOpen: boolean;
@@ -17,7 +18,12 @@ export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
 
     const hasItem = items.length >0;
 
-    console.log (total);
+    // aqui se trabaja en formulario de pedido
+
+    const [isOrderFormOpen, setIsOrderFormOpen] =useState(false);
+    const openOrder = ()=>setIsOrderFormOpen(true);
+    const closeOrder = ()=>setIsOrderFormOpen(false);
+
 
     return (
         <div>
@@ -60,11 +66,37 @@ export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
                         </div>
                         </div>
                         <div className="shopping_cart_actions">
-                            <button className="shopping_cart_create_button">crear pedido</button>
+                            <button className="shopping_cart_create_button" onClick={openOrder}>crear pedido</button>
                         </div>
                     </div>
                 )}
             </div>
+            {isOrderFormOpen && (
+                <div className="order_modal_backdrop" onClick={closeOrder}>
+                    <div className="order_modal">
+                        <div className="order_modal_header">
+                            <h3>ingrese los datos del pedido</h3>
+                            <button className="order_modal_close" onClick={closeOrder}>X</button>
+                        </div> 
+                        <form className="order_modal_form">
+                            <label className="order_modal_field">
+                                <span>Nombre y Apellido</span>
+                                <input type="text" name="nombre" placeholder="ingrese su nombre"></input>
+                            </label>
+
+                            <label className="order_modal_field">
+                                <span>Direccion y Comuna</span>
+                                <input type="text" name="direccion" placeholder="ej: av central"></input>
+                            </label>
+                            <label className="order_modal_field">
+                                <span>Telefono</span>
+                                <input type="tel" name="telefono" placeholder="ej:+56..."></input>
+                            </label>
+                            <button className="order_modal_submit" type="submit">crear pedido</button>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
