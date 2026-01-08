@@ -11,7 +11,6 @@ export function Menu({onCartClick}: MenuProp) {
             <ul>
                 <li><NavLink to="/">inicio</NavLink></li>
                 <li><NavLink to="/catalog">productos</NavLink></li>
-                <li><NavLink to="/pedido">pedido</NavLink></li>
                 <li><NavLink to="/contact">contacto</NavLink></li>
             </ul>
             <div className="cart_button" onClick={onCartClick}>

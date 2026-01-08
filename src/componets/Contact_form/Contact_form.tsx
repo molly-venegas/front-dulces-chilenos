@@ -14,9 +14,8 @@ export function Contact_form() {
     const [errorMessage, setErrorMessage] = useState <string>();
 
     
-    function handleChange(e:any
-
-    ){
+    function handleChange(e:any)
+    {
         const {name, value} = e.target;
         setForm((prev) => ({ ...prev, [name]: value}))
     }
@@ -44,6 +43,7 @@ export function Contact_form() {
         }
 
     }
+    
     return (
         <div className="contact">
             <h1>contacto</h1>

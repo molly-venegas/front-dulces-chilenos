@@ -24,6 +24,62 @@ export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
     const openOrder = ()=>setIsOrderFormOpen(true);
     const closeOrder = ()=>setIsOrderFormOpen(false);
 
+    //aqui se trabaja el envio de datos al formulario
+
+    const [orderForm, setOrderForm] = useState({
+        nombre:"",
+        direccion:"",
+        telefono:""
+    });
+
+    const [successMessage, setSuccessMessage] = useState <string>();
+
+    const [errorMessage, setErrorMessage] = useState <string>();
+
+    function handleChange(e:any)
+    {
+        const {name, value} = e.target;
+        setOrderForm((prev) => ({ ...prev, [name]: value}))
+    }
+
+    async function handleSubmit(e:any){
+        e.preventDefault();
+
+        const payload={
+            client: orderForm,
+            cart: items.map((item)=>{
+                return({
+                    id: item.product.id,
+                    name: item.product.name,
+                    description: item.product.description,
+                    price: item.product.price,
+                    quantity: item.quantity
+                }) 
+            }),
+            total: total
+        }
+
+        try {
+            const response = await fetch("http://localhost:3003/api/pedido",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
+
+            await response.json();
+            
+            if(!response.ok) {
+                throw new Error("error en el servidor");
+            }
+            
+            setSuccessMessage ("envio exitoso");
+        } catch (error) {
+            setErrorMessage ("no se pudo enviar el pedido");
+        }
+
+    }
 
     return (
         <div>
@@ -45,12 +101,10 @@ export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
                                     <img src={product.image} alt={product.alt}></img>
                                     <h3> {product.name} </h3>
                                 </div>
-
                                 <div className="cart_item_number">
                                     <span>cantidad</span>
                                     <strong> {quantity} </strong>
                                 </div>
-
                                 <div className="cart_item_number">
                                     <span>subtotal</span>
                                     <strong> {product.price * quantity} </strong>
@@ -72,26 +126,27 @@ export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
                 )}
             </div>
             {isOrderFormOpen && (
-                <div className="order_modal_backdrop" onClick={closeOrder}>
+                <div className="order_modal_backdrop">
                     <div className="order_modal">
                         <div className="order_modal_header">
                             <h3>ingrese los datos del pedido</h3>
                             <button className="order_modal_close" onClick={closeOrder}>X</button>
                         </div> 
-                        <form className="order_modal_form">
+                        <form className="order_modal_form" onSubmit={handleSubmit}>
                             <label className="order_modal_field">
                                 <span>Nombre y Apellido</span>
-                                <input type="text" name="nombre" placeholder="ingrese su nombre"></input>
+                                <input type="text" name="nombre" onChange={handleChange} placeholder="ingrese su nombre"></input>
                             </label>
-
                             <label className="order_modal_field">
                                 <span>Direccion y Comuna</span>
-                                <input type="text" name="direccion" placeholder="ej: av central"></input>
+                                <input type="text" name="direccion" onChange={handleChange} placeholder="ej: av central"></input>
                             </label>
                             <label className="order_modal_field">
                                 <span>Telefono</span>
-                                <input type="tel" name="telefono" placeholder="ej:+56..."></input>
+                                <input type="tel" name="telefono" onChange={handleChange} placeholder="ej:+56..."></input>
                             </label>
+                            {successMessage && (<div>{successMessage}</div>)}
+                            {errorMessage && (<div>{errorMessage}</div>)}
                             <button className="order_modal_submit" type="submit">crear pedido</button>
                         </form>
                     </div>
