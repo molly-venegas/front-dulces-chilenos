@@ -1,0 +1,21 @@
+.order_success {
+    margin:80px auto;
+    width: 600px;
+    padding: 32px;
+    text-align: center;
+}
+
+.order_success_button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: #25d366;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.order_success_button:hover {
+    background-color: #1ebe5d;
+}

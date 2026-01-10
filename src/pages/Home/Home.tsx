@@ -1,9 +1,10 @@
 import "./Home.css"
+import { Header } from './../../componets/header/Header';
 
 export function Home(){
     return(
         <div className="home">
-        <h1></h1>
+        <Header />
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import "./Shopping_cart.css";
 import { useCart } from "../../context/cart_context";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type ShoppingCartProps ={
     isOpen: boolean;
@@ -8,6 +9,8 @@ type ShoppingCartProps ={
 }
 
 export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
+
+    const navigate = useNavigate();
 
     const {items} = useCart();
     let total = 0;
@@ -77,6 +80,8 @@ export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
             
             setSuccessMessage ("envio exitoso");
             closeOrder();
+            onClose();
+            navigate(`/pedido_creado/${pedidoCreado.pedido._id}`);
         } catch (error) {
             setErrorMessage ("no se pudo enviar el pedido");
         }
