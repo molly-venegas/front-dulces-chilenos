@@ -68,7 +68,8 @@ export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
                 body: JSON.stringify(payload)
             });
 
-            await response.json();
+            const pedidoCreado = await response.json();
+            console.log (pedidoCreado);
             
             if(!response.ok) {
                 throw new Error("error en el servidor");
