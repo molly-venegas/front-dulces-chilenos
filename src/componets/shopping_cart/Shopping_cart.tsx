@@ -75,6 +75,7 @@ export function Shopping_cart({isOpen, onClose}:ShoppingCartProps) {
             }
             
             setSuccessMessage ("envio exitoso");
+            closeOrder();
         } catch (error) {
             setErrorMessage ("no se pudo enviar el pedido");
         }

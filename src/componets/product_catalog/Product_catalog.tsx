@@ -19,16 +19,15 @@ export function Product_catalog() {
                         <p>${product.price}</p>
                         <div className="product_actions">
                             <button 
-                            type="button"
-                            onClick={()=>removeItem(product)}
-                            disabled={quantity===0}>
+                                type="button"
+                                onClick={()=>removeItem(product)}
+                                disabled={quantity===0}>
                                 -
                             </button>
-                            <p>{quantity}
-                            </p>
+                            <p>{quantity}</p>
                             <button 
-                            type="button"
-                            onClick={()=>addItem(product)}>
+                                type="button"
+                                onClick={()=>addItem(product)}>
                                 +
                             </button>
                             </div>
