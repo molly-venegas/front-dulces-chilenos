@@ -1,31 +1,90 @@
 .product_catalog {
     text-align: center;
-    color: black;
+    color: #4b2d1f;
+}
+
+.product_catalog h1, .contact h1 {
+    margin: 0 0 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.section-kicker {
+    margin: 0 0 6px;
+    color: #a65b3b;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.section-description {
+    margin: 0 auto 32px;
+    max-width: 520px;
+    color: #725445;
 }
 
 .product {
-    border: 1px solid black;
-    width: 300px;
-    padding: 10px;
-    margin: 10px;
+    border: 1px solid #f0dfd1;
+    width: auto;
+    padding: 14px;
+    margin: 0;
     text-align: center;
     border-radius: 10px;
-    background-color: rgb(255, 248, 239);
+    background-color: #fffaf6;
+    box-shadow: 0 10px 24px rgba(92, 58, 33, 0.09);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgba(92, 58, 33, 0.15);
 }
 
 .product_grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 1120px;
     margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+    .product_grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .product_grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .product img {
     width: 100%;
+    aspect-ratio: 1 / 0.78;
+    object-fit: cover;
     border-radius: 10px;
 }
 
-.product p {
+.product h2 {
+    margin: 16px 0 4px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.45rem;
+}
+
+.product-description {
+    min-height: 1.5em;
+    margin: 0;
+    color: #856657;
+    text-transform: capitalize;
+}
+
+.product-price {
+    margin: 12px 0;
+    color: #8f4b32;
+    font-size: 1.25rem;
     font-weight: bold;
 }
 
@@ -36,7 +95,23 @@
 }
 
 .product_actions button {
-    border: 1px solid black;
+    border: 1px solid #b96f4d;
+    color: #7c3e28;
+    background: #fff;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.product_actions button:not(:disabled):hover {
+    background: #8f4b32;
+    color: #fff;
+}
+
+.product_actions button:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
 }
 
 .product_actions p {

@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom"
 import "./Menu.css"
 
 type MenuProp ={
@@ -9,9 +8,9 @@ export function Menu({onCartClick}: MenuProp) {
     return (
         <div className="menu">
             <ul>
-                <li><NavLink to="/">inicio</NavLink></li>
-                <li><NavLink to="/catalog">productos</NavLink></li>
-                <li><NavLink to="/contact">contacto</NavLink></li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
             <div className="cart_button" onClick={onCartClick}>
                 <a>🛒</a>

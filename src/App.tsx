@@ -10,6 +10,16 @@ import {useState } from 'react';
 import { Shopping_cart } from './componets/shopping_cart/Shopping_cart';
 import { OrderSuccess } from './pages/OrderSuccess/OrderSuccess';
 
+function Storefront() {
+  return (
+    <>
+      <section id="inicio" className="page-section"><Home /></section>
+      <section id="productos" className="page-section"><Catalog /></section>
+      <section id="contacto" className="page-section"><Contact /></section>
+    </>
+  );
+}
+
 function App() {
 
   const [isCartOpen, setIsCartOpen] =useState(false);
@@ -21,9 +31,7 @@ function App() {
   <div>
   <Menu onCartClick={openCart} />
   <Routes>
-    <Route path='/' element={<Home />} />
-    <Route path='/catalog' element={<Catalog />} />
-    <Route path='/contact' element={<Contact />} />
+    <Route path='/' element={<Storefront />} />
     <Route path='/pedido_creado/:orderId' element={<OrderSuccess />} />
     <Route path='*' element={<Navigate to="/" replace />} />
   </Routes>

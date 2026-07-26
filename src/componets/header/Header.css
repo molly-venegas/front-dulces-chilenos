@@ -1,9 +1,27 @@
 .header {
     text-align: center;
-    color: black;   
+    color: #4b2d1f;
+    max-width: 760px;
+    margin: 0 auto;
 }
 
 .logo {
-    width: 200px;
-    height: 100px;
+    width: min(260px, 75vw);
+    height: auto;
+    margin-bottom: 12px;
+}
+
+.header h2 {
+    margin: 8px auto 16px;
+    max-width: 650px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.12;
+}
+
+.header p {
+    max-width: 540px;
+    margin: 7px auto;
+    color: #725445;
+    font-size: 1.05rem;
 }
